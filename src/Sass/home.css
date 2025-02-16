@@ -1,0 +1,148 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #FFFFFF;
+  color: #111827;
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+@media screen and (max-width: 480px) {
+  .container {
+    padding: 0 16px;
+  }
+}
+
+.header {
+  padding: 20px 0;
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #E5E7EB;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav .logo img {
+  height: 50px;
+  width: auto;
+}
+.nav .nav-links {
+  display: flex;
+  gap: 32px;
+}
+@media screen and (max-width: 768px) {
+  .nav .nav-links {
+    display: none;
+  }
+}
+.nav .nav-links a {
+  color: #4B5563;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  transition: color 0.2s ease;
+}
+.nav .nav-links a:hover, .nav .nav-links a.active {
+  color: #E1447C;
+}
+.nav .nav-icons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.nav .nav-icons .icon-link {
+  color: #4B5563;
+  font-size: 20px;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.nav .nav-icons .icon-link:hover {
+  color: #E1447C;
+}
+.nav .nav-icons .mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: #4B5563;
+  font-size: 20px;
+  cursor: pointer;
+}
+@media screen and (max-width: 768px) {
+  .nav .nav-icons .mobile-menu-btn {
+    display: block;
+  }
+}
+
+.hero {
+  padding: 60px 0;
+}
+@media screen and (max-width: 480px) {
+  .hero {
+    padding: 40px 0;
+  }
+}
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  gap: 60px;
+}
+@media screen and (max-width: 768px) {
+  .hero-content {
+    flex-direction: column-reverse;
+    gap: 40px;
+  }
+}
+
+.hero-text {
+  flex: 1;
+}
+.hero-text h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 64px;
+  margin-bottom: 24px;
+  color: #111827;
+}
+@media screen and (max-width: 768px) {
+  .hero-text h1 {
+    font-size: 48px;
+    text-align: center;
+  }
+}
+@media screen and (max-width: 480px) {
+  .hero-text h1 {
+    font-size: 36px;
+  }
+}
+.hero-text p {
+  font-size: 18px;
+  color: #4B5563;
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+@media screen and (max-width: 768px) {
+  .hero-text p {
+    text-align: center;
+    font-size: 16px;
+  }
+}
+
+.hero-image {
+  flex: 1;
+}
+.hero-image img {
+  width: 100%;
+  height: auto;
+}/*# sourceMappingURL=home.css.map */

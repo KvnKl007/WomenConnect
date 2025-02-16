@@ -8,13 +8,14 @@
 
 body {
   font-family: "Inter", sans-serif;
-  background-color: #F9FAFB;
+  background-color: #FFFFFF;
   margin: 0;
   padding: 0;
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow-x: hidden;
 }
 
 .register-contianer {
@@ -32,6 +33,7 @@ body {
   width: 400px;
   padding: 20px;
   margin: 0 auto;
+  align-self: center;
 }
 @media screen and (max-width: 480px) {
   .register-contianer .form-container {
@@ -142,6 +144,10 @@ body {
   cursor: pointer;
   transition: all 0.2s ease;
   width: 100%;
+}
+.register-contianer .signup-button a {
+  color: #F9FAFB;
+  text-decoration: none;
 }
 .register-contianer .signup-button:hover {
   background-color: #dd2e6d;
