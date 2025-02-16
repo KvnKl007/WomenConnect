@@ -1,0 +1,312 @@
+// Using the same variables and mixins from previous styles
+$primary-color: #E1447C;
+$text-color: #111827;
+$nav-text-color: #4B5563;
+$background-color: #F9FAFB;
+$border-color: #E5E7EB;
+
+// Breakpoints
+$mobile: 480px;
+$tablet: 768px;
+$desktop: 1024px;
+
+// Mixins
+@mixin responsive($breakpoint) {
+  @if $breakpoint == mobile {
+    @media screen and (max-width: $mobile) {
+      @content;
+    }
+  }
+  @if $breakpoint == tablet {
+    @media screen and (max-width: $tablet) {
+      @content;
+    }
+  }
+  @if $breakpoint == desktop {
+    @media screen and (max-width: $desktop) {
+      @content;
+    }
+  }
+}
+
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: $background-color;
+    color: $text-color;
+    line-height: 1.5;
+  }
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  
+    @include responsive(mobile) {
+      padding: 0 16px;
+    }
+  }
+
+// Header & Navigation
+.header {
+    padding: 20px 0;
+    background-color: $background-color;
+    border-bottom: 1px solid #E5E7EB;
+  }
+  
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  
+    .logo {
+      img {
+        height: 50px;
+        width: auto;
+      }
+    }
+  
+    .nav-links {
+      display: flex;
+      gap: 32px;
+  
+      @include responsive(tablet) {
+        display: none;
+      }
+  
+      a {
+        color: $nav-text-color;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 16px;
+        transition: color 0.2s ease;
+  
+        &:hover, &.active {
+          color: $primary-color;
+        }
+      }
+    }
+  
+    .nav-icons {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+  
+      .icon-link {
+        color: $nav-text-color;
+        font-size: 20px;
+        text-decoration: none;
+        transition: color 0.2s ease;
+  
+        &:hover {
+          color: $primary-color;
+        }
+      }
+  
+      .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        color: $nav-text-color;
+        font-size: 20px;
+        cursor: pointer;
+  
+        @include responsive(tablet) {
+          display: block;
+        }
+      }
+    }
+  }
+
+// Profile specific styles
+.profile-section {
+  padding: 0 0 60px;
+  background-color: $background-color;
+}
+
+.profile-header {
+  position: relative;
+}
+
+.profile-cover {
+    position: relative;
+    top: -60px;
+  height: 200px;
+  background-color: lighten($primary-color, 30%);
+  border-radius: 0 0 16px 16px;
+
+  @include responsive(mobile) {
+    height: 150px;
+  }
+}
+
+.profile-info {
+  position: relative;
+  margin-top: -160px;
+  padding: 0 24px;
+  @include flex-column();
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+
+  @include responsive(tablet) {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+  }
+}
+
+.profile-avatar {
+  position: relative;
+  
+  img {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    border: 4px solid white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .edit-avatar {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: $primary-color;
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.profile-details {
+  flex: 1;
+  padding-bottom: 16px;
+
+  h1 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: $text-color;
+  }
+}
+
+.profile-section {
+    padding: 60px 0;
+  
+    @include responsive(mobile) {
+      padding: 40px 0;
+    }
+  }
+  
+  .profile-card {
+    max-width: 400px;
+    border-radius: 12px;
+    padding: 32px;
+  
+    @include responsive(mobile) {
+      padding: 24px;
+    }
+  
+    h1 {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 32px;
+      color: $text-color;
+    }
+  }
+  
+  .profile-form {
+    @include flex-column();
+    gap: 24px;
+   
+  }
+  
+  .form-group {
+    @include flex-column();
+    gap: 8px;
+  
+    label {
+      font-size: 14px;
+      font-weight: 500;
+      color: $text-color;
+    }
+  }
+  
+  .input-wrapper {
+    position: relative;
+  
+    input {
+      width: 100%;
+      padding: 12px 16px;
+      padding-right: 40px;
+      border: 1px solid $border-color;
+      border-radius: 8px;
+      font-size: 14px;
+      color: $text-color;
+      background-color: #F9FAFB;
+      cursor: default;
+  
+      &:read-only {
+        opacity: 0.8;
+      }
+    }
+  
+    .icon {
+      position: absolute;
+      right: -40px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: $nav-text-color;
+      font-size: 16px;
+    }
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  .logout-button {
+    background-color: $primary-color;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    gap: 8px;
+    width: 100%;
+    
+    i {
+      font-size: 16px;
+    }
+  
+    &:hover {
+      background-color: darken($primary-color, 5%);
+      transform: translateY(-1px);
+    }
+    
+    &:active {
+      transform: translateY(0);
+    }
+  }

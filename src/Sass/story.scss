@@ -1,0 +1,124 @@
+// Variables
+$primary-color: #E1447C;
+$text-color: #111827;
+$nav-text-color: #4B5563;
+$background-color: #FFFFFF;
+
+// Breakpoints
+$mobile: 480px;
+$tablet: 768px;
+$desktop: 1024px;
+
+// Mixins
+@mixin responsive($breakpoint) {
+  @if $breakpoint == mobile {
+    @media screen and (max-width: $mobile) {
+      @content;
+    }
+  }
+  @if $breakpoint == tablet {
+    @media screen and (max-width: $tablet) {
+      @content;
+    }
+  }
+  @if $breakpoint == desktop {
+    @media screen and (max-width: $desktop) {
+      @content;
+    }
+  }
+}
+
+// Reset & Base Styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: $background-color;
+  color: $text-color;
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+
+  @include responsive(mobile) {
+    padding: 0 16px;
+  }
+}
+
+// Header & Navigation
+.header {
+  padding: 20px 0;
+  background-color: $background-color;
+  border-bottom: 1px solid #E5E7EB;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .logo {
+    img {
+      height: 50px;
+      width: auto;
+    }
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+
+    @include responsive(tablet) {
+      display: none;
+    }
+
+    a {
+      color: $nav-text-color;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 16px;
+      transition: color 0.2s ease;
+
+      &:hover, &.active {
+        color: $primary-color;
+      }
+    }
+  }
+
+  .nav-icons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    .icon-link {
+      color: $nav-text-color;
+      font-size: 20px;
+      text-decoration: none;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: $primary-color;
+      }
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: $nav-text-color;
+      font-size: 20px;
+      cursor: pointer;
+
+      @include responsive(tablet) {
+        display: block;
+      }
+    }
+  }
+}
