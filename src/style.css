@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+.register-contianer {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+.register-contianer img {
+  width: 200px;
+}
+.register-contianer .reg-content {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}/*# sourceMappingURL=style.css.map */
