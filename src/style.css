@@ -1,7 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
 * {
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
+  transition: all 0.2s ease;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #F9FAFB;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .register-contianer {
@@ -15,8 +28,141 @@
 .register-contianer img {
   width: 200px;
 }
-.register-contianer .reg-content {
+.register-contianer .form-container {
+  width: 400px;
+  padding: 20px;
+  margin: 0 auto;
+}
+@media screen and (max-width: 480px) {
+  .register-contianer .form-container {
+    padding: 16px;
+    max-width: 100%;
+  }
+}
+.register-contianer .signup-form {
   display: flex;
   flex-direction: column;
-  align-items: start;
+  gap: 24px;
+  padding: 24px;
+  border-radius: 12px;
+}
+@media screen and (max-width: 480px) {
+  .register-contianer .signup-form {
+    padding: 20px;
+    gap: 20px;
+  }
+}
+.register-contianer .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.register-contianer .form-group label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #111827;
+}
+.register-contianer .input-wrapper {
+  position: relative;
+}
+.register-contianer .input-wrapper input {
+  width: 100%;
+  padding: 12px 16px;
+  padding-right: 40px;
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #111827;
+  background-color: #FFFFFF;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+.register-contianer .input-wrapper input::-moz-placeholder {
+  color: #6B7280;
+}
+.register-contianer .input-wrapper input::placeholder {
+  color: #6B7280;
+}
+.register-contianer .input-wrapper input:focus {
+  outline: none;
+  border-color: #E1447C;
+  box-shadow: 0 0 0 3px rgba(225, 68, 124, 0.1);
+}
+@media screen and (max-width: 480px) {
+  .register-contianer .input-wrapper input {
+    padding: 10px 14px;
+    padding-right: 36px;
+    font-size: 13px;
+  }
+}
+.register-contianer .input-wrapper .icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #6B7280;
+  font-size: 16px;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+.register-contianer .input-wrapper .icon:hover {
+  color: #E1447C;
+}
+@media screen and (max-width: 480px) {
+  .register-contianer .input-wrapper .icon {
+    right: 10px;
+    font-size: 14px;
+  }
+}
+.register-contianer .forgot-password {
+  font-size: 14px;
+  color: #E1447C;
+  text-decoration: none;
+  align-self: flex-end;
+  margin-top: 4px;
+  transition: color 0.2s ease;
+}
+.register-contianer .forgot-password:hover {
+  color: #d12160;
+  text-decoration: underline;
+}
+@media screen and (max-width: 480px) {
+  .register-contianer .forgot-password {
+    font-size: 13px;
+  }
+}
+.register-contianer .signup-button {
+  background-color: #E1447C;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+.register-contianer .signup-button:hover {
+  background-color: #dd2e6d;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(225, 68, 124, 0.2);
+}
+.register-contianer .signup-button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+@media screen and (max-width: 480px) {
+  .register-contianer .signup-button {
+    padding: 10px;
+    font-size: 13px;
+  }
+}
+.register-contianer .account {
+  color: #6B7280;
+  font-size: 12px;
+  text-align: center;
+}
+.register-contianer .account span a {
+  color: #E1447C;
 }/*# sourceMappingURL=style.css.map */

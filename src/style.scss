@@ -1,9 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
 *{
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
+    transition: all 0.2s ease;
 }
 
+// Variables
+$primary-color: #E1447C;
+$input-background: #FFFFFF;
+$border-color: #E5E7EB;
+$text-color: #111827;
+$placeholder-color: #6B7280;
+
+// Breakpoints
+$mobile: 480px;
+$tablet: 768px;
+$desktop: 1024px;
+
+// Mixins
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin responsive($breakpoint) {
+  @if $breakpoint == mobile {
+    @media screen and (max-width: $mobile) {
+      @content;
+    }
+  }
+  @if $breakpoint == tablet {
+    @media screen and (max-width: $tablet) {
+      @content;
+    }
+  }
+  @if $breakpoint == desktop {
+    @media screen and (max-width: $desktop) {
+      @content;
+    }
+  }
+}
+
+// Base styles
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #F9FAFB;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Register and Login styles
 .register-contianer {
     display: flex;
     flex-direction: column;
@@ -14,9 +66,144 @@
     img {
         width: 200px;
     }
-    .reg-content {
-        display: flex;
-        flex-direction: column;
-        align-items: start;
-    }
+    .form-container {
+        width: 400px;
+        padding: 20px;
+        margin: 0 auto;
+      
+        @include responsive(mobile) {
+          padding: 16px;
+          max-width: 100%;
+        }
+      }
+      .signup-form {
+        @include flex-column;
+        gap: 24px;
+        padding: 24px;
+        border-radius: 12px;
+        
+      
+        @include responsive(mobile) {
+          padding: 20px;
+          gap: 20px;
+        }
+      }
+      .form-group {
+        @include flex-column;
+        gap: 8px;
+      
+        label {
+          font-size: 14px;
+          font-weight: 500;
+          color: $text-color;
+        }
+      }
+      .input-wrapper {
+        position: relative;
+        
+        input {
+          width: 100%;
+          padding: 12px 16px;
+          padding-right: 40px;
+          border: 1px solid $border-color;
+          border-radius: 8px;
+          font-size: 14px;
+          color: $text-color;
+          background-color: $input-background;
+          transition: all 0.2s ease;
+          box-sizing: border-box;
+          
+          &::placeholder {
+            color: $placeholder-color;
+          }
+          
+          &:focus {
+            outline: none;
+            border-color: $primary-color;
+            box-shadow: 0 0 0 3px rgba($primary-color, 0.1);
+          }
+      
+          @include responsive(mobile) {
+            padding: 10px 14px;
+            padding-right: 36px;
+            font-size: 13px;
+          }
+        }
+        
+        .icon {
+          position: absolute;
+          right: 12px;
+          top: 50%;
+          transform: translateY(-50%);
+          color: $placeholder-color;
+          font-size: 16px;
+          cursor: pointer;
+          transition: color 0.2s ease;
+      
+          &:hover {
+            color: $primary-color;
+          }
+      
+          @include responsive(mobile) {
+            right: 10px;
+            font-size: 14px;
+          }
+        }
+      }
+      .forgot-password {
+        font-size: 14px;
+        color: $primary-color;
+        text-decoration: none;
+        align-self: flex-end;
+        margin-top: 4px;
+        transition: color 0.2s ease;
+        
+        &:hover {
+          color: darken($primary-color, 10%);
+          text-decoration: underline;
+        }
+      
+        @include responsive(mobile) {
+          font-size: 13px;
+        }
+      }
+      
+      .signup-button {
+        background-color: $primary-color;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        padding: 12px;
+        font-size: 14px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        width: 100%;
+        
+        &:hover {
+          background-color: darken($primary-color, 5%);
+          transform: translateY(-1px);
+          box-shadow: 0 2px 4px rgba($primary-color, 0.2);
+        }
+        
+        &:active {
+          transform: translateY(0);
+          box-shadow: none;
+        }
+      
+        @include responsive(mobile) {
+          padding: 10px;
+          font-size: 13px;
+        }
+      }
+      .account {
+        color: #6B7280;
+        font-size: 12px;
+        text-align: center;
+        span  a {
+            color: $primary-color;
+        }
+      }
+      
+ 
 }
