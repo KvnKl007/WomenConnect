@@ -27,6 +27,10 @@ $desktop: 1024px;
     }
   }
 }
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
 
 // Reset & Base Styles
 * {
@@ -122,3 +126,105 @@ body {
     }
   }
 }
+
+// main
+main {
+  margin-top: 20px;
+  padding: 0;
+  width: 100%;
+}
+
+.story-container {
+  position: relative;
+  @include flex-column();
+  gap: 20px;
+  h1 {
+    font-size: 48px;
+    color: $primary-color;
+    @include responsive(mobile){
+      font-size: 32px;
+      text-align: center
+    }
+  }
+  
+  .story-card {
+    @include flex-column();
+    padding: 40px;
+    border-radius: 12px;
+    border: #4B5563;
+    box-shadow: 0 5px 20px 0 #4B5563;
+    gap: 50px;
+
+    @include responsive(mobile){
+      padding: 20px
+    }
+  }
+  .top-cont {
+    @include flex-column();
+    gap: 10px;
+    p {
+      color: #4B5563;
+    }
+  }
+  .bottom-cont {
+    display: flex;
+    justify-content: space-between;
+
+    @include responsive(mobile){
+      @include flex-column();
+    }
+    
+    .flex {
+      display: flex;
+      gap: 16px;
+
+      @include responsive(mobile){
+        gap: 10px;
+        justify-content: center;
+        b {
+          font-size: 12px;
+        }
+        p {
+          font-size: 12px;
+        };
+      }
+
+    }
+    .divider {
+      display: none;
+      height: 1px;
+      width: 100%;
+      background-color: #4B5563;
+      
+      @include responsive(mobile){
+        display: block;
+      }
+    }
+    .icons {
+      display: flex;
+      gap: 16px;
+
+      @include responsive(mobile){
+        justify-content: center;
+      }
+      .like {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        i {
+          color: #E1447C;
+        }
+      }
+      .share {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+      .save {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+    }
+  }
+} 

@@ -82,4 +82,113 @@ body {
   .nav .nav-icons .mobile-menu-btn {
     display: block;
   }
+}
+
+main {
+  margin-top: 20px;
+  padding: 0;
+  width: 100%;
+}
+
+.story-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.story-container h1 {
+  font-size: 48px;
+  color: #E1447C;
+}
+@media screen and (max-width: 480px) {
+  .story-container h1 {
+    font-size: 32px;
+    text-align: center;
+  }
+}
+.story-container .story-card {
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  border-radius: 12px;
+  border: #4B5563;
+  box-shadow: 0 5px 20px 0 #4B5563;
+  gap: 50px;
+}
+@media screen and (max-width: 480px) {
+  .story-container .story-card {
+    padding: 20px;
+  }
+}
+.story-container .top-cont {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.story-container .top-cont p {
+  color: #4B5563;
+}
+.story-container .bottom-cont {
+  display: flex;
+  justify-content: space-between;
+}
+@media screen and (max-width: 480px) {
+  .story-container .bottom-cont {
+    display: flex;
+    flex-direction: column;
+  }
+}
+.story-container .bottom-cont .flex {
+  display: flex;
+  gap: 16px;
+}
+@media screen and (max-width: 480px) {
+  .story-container .bottom-cont .flex {
+    gap: 10px;
+    justify-content: center;
+  }
+  .story-container .bottom-cont .flex b {
+    font-size: 12px;
+  }
+  .story-container .bottom-cont .flex p {
+    font-size: 12px;
+  }
+}
+.story-container .bottom-cont .divider {
+  display: none;
+  height: 1px;
+  width: 100%;
+  background-color: #4B5563;
+}
+@media screen and (max-width: 480px) {
+  .story-container .bottom-cont .divider {
+    display: block;
+  }
+}
+.story-container .bottom-cont .icons {
+  display: flex;
+  gap: 16px;
+}
+@media screen and (max-width: 480px) {
+  .story-container .bottom-cont .icons {
+    justify-content: center;
+  }
+}
+.story-container .bottom-cont .icons .like {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.story-container .bottom-cont .icons .like i {
+  color: #E1447C;
+}
+.story-container .bottom-cont .icons .share {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.story-container .bottom-cont .icons .save {
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }/*# sourceMappingURL=story.css.map */
