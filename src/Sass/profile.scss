@@ -141,6 +141,7 @@ $desktop: 1024px;
 
   @include responsive(mobile) {
     height: 150px;
+    top: -40px;
   }
 }
 
@@ -207,79 +208,84 @@ $desktop: 1024px;
 }
 
 .profile-section {
-    padding: 60px 0;
+  padding: 60px 0;
+  width: 100%;  // Added to ensure full width
   
-    @include responsive(mobile) {
-      padding: 40px 0;
-    }
+  @include responsive(mobile) {
+    padding: 40px 0;
+  }
+}
+
+.profile-card {
+  max-width: 400px;
+  width: 100%; 
+  margin: 0 auto;  
+  border-radius: 12px;
+  padding: 32px;
+  box-sizing: border-box;  
+  @include responsive(mobile) {
+    padding: 24px;
+    max-width: 100%;  
   }
   
-  .profile-card {
-    max-width: 400px;
-    border-radius: 12px;
-    padding: 32px;
-  
-    @include responsive(mobile) {
-      padding: 24px;
-    }
-  
-    h1 {
-      font-size: 24px;
-      font-weight: 600;
-      margin-bottom: 32px;
-      color: $text-color;
-    }
+  h1 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 32px;
+    color: $text-color;
+    text-align: center;  
   }
-  
-  .profile-form {
-    @include flex-column();
-    gap: 24px;
-   
-  }
+}
+
+.profile-form {
+  @include flex-column();
+  gap: 24px;
+  width: 100%;  
   
   .form-group {
     @include flex-column();
     gap: 8px;
-  
+    width: 100%;  
+    
     label {
       font-size: 14px;
       font-weight: 500;
       color: $text-color;
     }
-  }
-  
-  .input-wrapper {
-    position: relative;
-  
-    input {
-      width: 100%;
-      padding: 12px 16px;
-      padding-right: 40px;
-      border: 1px solid $border-color;
-      border-radius: 8px;
-      font-size: 14px;
-      color: $text-color;
-      background-color: #F9FAFB;
-      cursor: default;
-  
-      &:read-only {
-        opacity: 0.8;
+    
+    .input-wrapper {
+      position: relative;
+      width: 100%;  
+      
+      input {
+        width: 100%;
+        padding: 12px 16px;
+        border: 1px solid $border-color;
+        border-radius: 8px;
+        font-size: 14px;
+        color: $text-color;
+        background-color: #F9FAFB;
+        box-sizing: border-box;  
+        
+        &:read-only {
+          opacity: 0.8;
+        }
+      }
+      
+      .icon {
+        position: absolute;
+        right: 16px;  
+        top: 50%;
+        transform: translateY(-50%);
+        color: $nav-text-color;
+        font-size: 16px;
       }
     }
-  
-    .icon {
-      position: absolute;
-      right: -40px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: $nav-text-color;
-      font-size: 16px;
-    }
   }
-  
-  a {
+  a{
     text-decoration: none;
   }
+  
   .logout-button {
     background-color: $primary-color;
     color: white;
@@ -293,14 +299,15 @@ $desktop: 1024px;
     display: flex;
     align-items: center;
     justify-content: center;
-    align-self: center;
-    gap: 8px;
-    width: 100%;
+    width: 100%;  
+    margin-top: 16px;  
+    box-sizing: border-box;  
     
     i {
       font-size: 16px;
+      margin-right: 8px;  
     }
-  
+    
     &:hover {
       background-color: darken($primary-color, 5%);
       transform: translateY(-1px);
@@ -310,3 +317,4 @@ $desktop: 1024px;
       transform: translateY(0);
     }
   }
+}

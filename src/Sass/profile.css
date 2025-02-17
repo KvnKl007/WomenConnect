@@ -97,6 +97,7 @@ body {
 @media screen and (max-width: 480px) {
   .profile-cover {
     height: 150px;
+    top: -40px;
   }
 }
 
@@ -162,6 +163,7 @@ body {
 
 .profile-section {
   padding: 60px 0;
+  width: 100%;
 }
 @media screen and (max-width: 480px) {
   .profile-section {
@@ -171,12 +173,16 @@ body {
 
 .profile-card {
   max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
   border-radius: 12px;
   padding: 32px;
+  box-sizing: border-box;
 }
 @media screen and (max-width: 480px) {
   .profile-card {
     padding: 24px;
+    max-width: 100%;
   }
 }
 .profile-card h1 {
@@ -184,59 +190,58 @@ body {
   font-weight: 600;
   margin-bottom: 32px;
   color: #111827;
+  text-align: center;
 }
 
 .profile-form {
   display: flex;
   flex-direction: column;
   gap: 24px;
+  width: 100%;
 }
-
-.form-group {
+.profile-form .form-group {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  width: 100%;
 }
-.form-group label {
+.profile-form .form-group label {
   font-size: 14px;
   font-weight: 500;
   color: #111827;
 }
-
-.input-wrapper {
+.profile-form .form-group .input-wrapper {
   position: relative;
+  width: 100%;
 }
-.input-wrapper input {
+.profile-form .form-group .input-wrapper input {
   width: 100%;
   padding: 12px 16px;
-  padding-right: 40px;
   border: 1px solid #E5E7EB;
   border-radius: 8px;
   font-size: 14px;
   color: #111827;
   background-color: #F9FAFB;
-  cursor: default;
+  box-sizing: border-box;
 }
-.input-wrapper input:-moz-read-only {
+.profile-form .form-group .input-wrapper input:-moz-read-only {
   opacity: 0.8;
 }
-.input-wrapper input:read-only {
+.profile-form .form-group .input-wrapper input:read-only {
   opacity: 0.8;
 }
-.input-wrapper .icon {
+.profile-form .form-group .input-wrapper .icon {
   position: absolute;
-  right: -40px;
+  right: 16px;
   top: 50%;
   transform: translateY(-50%);
   color: #4B5563;
   font-size: 16px;
 }
-
-a {
+.profile-form a {
   text-decoration: none;
 }
-
-.logout-button {
+.profile-form .logout-button {
   background-color: #E1447C;
   color: white;
   border: none;
@@ -249,17 +254,18 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  align-self: center;
-  gap: 8px;
   width: 100%;
+  margin-top: 16px;
+  box-sizing: border-box;
 }
-.logout-button i {
+.profile-form .logout-button i {
   font-size: 16px;
+  margin-right: 8px;
 }
-.logout-button:hover {
+.profile-form .logout-button:hover {
   background-color: #dd2e6d;
   transform: translateY(-1px);
 }
-.logout-button:active {
+.profile-form .logout-button:active {
   transform: translateY(0);
 }/*# sourceMappingURL=profile.css.map */
