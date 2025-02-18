@@ -112,9 +112,14 @@ main {
   flex-direction: column;
   padding: 40px;
   border-radius: 12px;
-  border: #4B5563;
-  box-shadow: 0 5px 20px 0 #4B5563;
+  border: 1px solid #E5E7EB;
+  transition: all 0.2s ease;
+  cursor: pointer;
   gap: 50px;
+}
+.story-container .story-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 @media screen and (max-width: 480px) {
   .story-container .story-card {
