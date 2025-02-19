@@ -26,6 +26,9 @@ body {
   padding: 20px 0;
   background-color: #FFFFFF;
   border-bottom: 1px solid #E5E7EB;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .nav {
@@ -84,10 +87,80 @@ body {
   }
 }
 
+.mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.mobile-menu-overlay.active {
+  right: 0;
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-menu-content {
+  position: absolute;
+  top: 0;
+  right: -300px;
+  width: 300px;
+  height: 100%;
+  background-color: #FFFFFF;
+  padding: 24px;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+  transition: right 0.3s ease;
+}
+.active .mobile-menu-content {
+  right: 0;
+}
+
+.mobile-menu-header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 32px;
+}
+.mobile-menu-header .close-menu-btn {
+  background: none;
+  border: none;
+  color: #4B5563;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 8px;
+  transition: color 0.2s ease;
+}
+.mobile-menu-header .close-menu-btn:hover {
+  color: #E1447C;
+}
+
+.mobile-menu-links {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.mobile-menu-links a {
+  color: #4B5563;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 18px;
+  padding: 8px 0;
+  transition: color 0.2s ease;
+  border-bottom: 1px solid #E5E7EB;
+}
+.mobile-menu-links a:hover, .mobile-menu-links a.active {
+  color: #E1447C;
+}
+
 main {
   margin-top: 20px;
   padding: 0;
   width: 100%;
+  z-index: 0;
 }
 
 .story-container {
@@ -96,6 +169,7 @@ main {
   flex-direction: column;
   gap: 40px;
   margin-bottom: 40px;
+  z-index: 0;
 }
 .story-container h1 {
   font-size: 48px;
@@ -116,6 +190,7 @@ main {
   transition: all 0.2s ease;
   cursor: pointer;
   gap: 50px;
+  z-index: 0;
 }
 .story-container .story-card:hover {
   transform: translateY(-2px);
