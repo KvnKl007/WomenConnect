@@ -9,6 +9,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   </head>
   <body>
     <header class="header">
@@ -21,16 +22,17 @@
             />
           </div>
           <div class="nav-links">
-            <a href="/src/pages/home.html" class="active">Home</a>
+            <a href="/src/pages/home.html">Home</a>
             <a href="/src/pages/story.html">Story Sharing</a>
             <a href="/src/pages/forum.html">Community Forum</a>
-            <a href="/src/pages/eventCalendar.html">EventsCalendar</a>
+            <a href="/src/pages/eventCalendar.html" class="active"
+              >EventsCalendar</a
+            >
           </div>
           <div class="nav-icons">
             <a href="/src/pages/profile.html" class="icon-link"
               ><i class="fa-regular fa-user"></i
             ></a>
-            <a href="#" class="icon-link"><i class="fa-solid fa-search"></i></a>
             <button class="mobile-menu-btn">
               <i class="fa-solid fa-bars"></i>
             </button>
@@ -65,208 +67,19 @@
         <!-- Today's Events Section -->
         <section class="events-section">
           <h2>Happening Today</h2>
-          <div class="events-grid">
-            <div class="event-card">
-              <div class="event-image">
-                <img
-                  src="/src/assets/women's-conference-flyer-design-template-e354b33ddab2f863511b510b47e85767_screen.jpg"
-                  alt="Women in Tech Workshop"
-                />
-                <span class="event-timing">2:00 PM - 4:00 PM</span>
-              </div>
-              <div class="event-content">
-                <h3>Women in Tech Workshop</h3>
-                <p class="event-location">
-                  <i class="fa-solid fa-location-dot"></i>
-                  Virtual Meeting
-                </p>
-                <p class="event-description">
-                  Join us for an interactive workshop on career advancement in
-                  tech.
-                </p>
-                <button class="register-btn">Register Now</button>
-              </div>
-            </div>
-            <div class="event-card">
-              <div class="event-image">
-                <img
-                  src="/src/assets/event-featured-recentering-your-customer-in-the-new-year-with-autumn-sanders-1731773618.jpeg"
-                  alt="Women in Tech Workshop"
-                />
-                <span class="event-timing">2:00 PM - 4:00 PM</span>
-              </div>
-              <div class="event-content">
-                <h3>Women in Tech Workshop</h3>
-                <p class="event-location">
-                  <i class="fa-solid fa-location-dot"></i>
-                  Virtual Meeting
-                </p>
-                <p class="event-description">
-                  Join us for an interactive workshop on career advancement in
-                  tech.
-                </p>
-                <button class="register-btn">Register Now</button>
-              </div>
-            </div>
-            <div class="event-card">
-              <div class="event-image">
-                <img
-                  src="/src/assets/Natl.-Womens-and-Girls-HIVAIDS-Awareness-Day.jpg"
-                  alt="Women in Tech Workshop"
-                />
-                <span class="event-timing">2:00 PM - 4:00 PM</span>
-              </div>
-              <div class="event-content">
-                <h3>Women in Tech Workshop</h3>
-                <p class="event-location">
-                  <i class="fa-solid fa-location-dot"></i>
-                  Virtual Meeting
-                </p>
-                <p class="event-description">
-                  Join us for an interactive workshop on career advancement in
-                  tech.
-                </p>
-                <button class="register-btn">Register Now</button>
-              </div>
-            </div>
-          </div>
+          <div class="events-grid" id="today-events-grid"></div>
         </section>
 
         <!-- This Week's Events Section -->
         <section class="events-section">
           <h2>This Week</h2>
-          <div class="events-grid">
-            <div class="event-card">
-              <div class="event-image">
-                <img
-                  src="/src/assets/women-conference-design-template-da55378b426b08d6f187b3506a36c02e_screen.jpg"
-                  alt="Leadership Summit"
-                />
-                <span class="event-timing">Feb 20 • 10:00 AM</span>
-              </div>
-              <div class="event-content">
-                <h3>Leadership Summit 2025</h3>
-                <p class="event-location">
-                  <i class="fa-solid fa-location-dot"></i>
-                  Convention Center
-                </p>
-                <p class="event-description">
-                  Annual leadership summit featuring inspiring speakers and
-                  networking.
-                </p>
-                <button class="register-btn">Register Now</button>
-              </div>
-            </div>
-            <div class="event-card">
-              <div class="event-image">
-                <img
-                  src="/src/assets/WHM-social-512x512.avif"
-                  alt="Leadership Summit"
-                />
-                <span class="event-timing">Feb 20 • 10:00 AM</span>
-              </div>
-              <div class="event-content">
-                <h3>Leadership Summit 2025</h3>
-                <p class="event-location">
-                  <i class="fa-solid fa-location-dot"></i>
-                  Convention Center
-                </p>
-                <p class="event-description">
-                  Annual leadership summit featuring inspiring speakers and
-                  networking.
-                </p>
-                <button class="register-btn">Register Now</button>
-              </div>
-            </div>
-            <div class="event-card">
-              <div class="event-image">
-                <img
-                  src="/src/assets/a47343a0-d79a-4edd-9d9c-59e53ed578af_1024.jpeg"
-                  alt="Leadership Summit"
-                />
-                <span class="event-timing">Feb 20 • 10:00 AM</span>
-              </div>
-              <div class="event-content">
-                <h3>Leadership Summit 2025</h3>
-                <p class="event-location">
-                  <i class="fa-solid fa-location-dot"></i>
-                  Convention Center
-                </p>
-                <p class="event-description">
-                  Annual leadership summit featuring inspiring speakers and
-                  networking.
-                </p>
-                <button class="register-btn">Register Now</button>
-              </div>
-            </div>
-          </div>
+          <div class="events-grid" id="this-week-events-grid"></div>
         </section>
 
         <!-- Upcoming Events Section -->
         <section class="events-section">
           <h2>Upcoming Events</h2>
-          <div class="events-grid">
-            <div class="event-card">
-              <div class="event-image">
-                <img
-                  src="/src/assets/0a32532585e804e529896691ef623bba.jpg"
-                  alt="Mentorship Program"
-                />
-                <span class="event-timing">Mar 1 • 1:00 PM</span>
-              </div>
-              <div class="event-content">
-                <h3>Mentorship Program Launch</h3>
-                <p class="event-location">
-                  <i class="fa-solid fa-location-dot"></i>
-                  Community Center
-                </p>
-                <p class="event-description">
-                  Launch of our 2025 mentorship program with special guests.
-                </p>
-                <button class="register-btn">Register Now</button>
-              </div>
-            </div>
-            <div class="event-card">
-              <div class="event-image">
-                <img
-                  src="/src/assets//81d822b7-aaf8-4e84-9d0b-1bae5d5465c6.png"
-                  alt="Mentorship Program"
-                />
-                <span class="event-timing">Mar 1 • 1:00 PM</span>
-              </div>
-              <div class="event-content">
-                <h3>Mentorship Program Launch</h3>
-                <p class="event-location">
-                  <i class="fa-solid fa-location-dot"></i>
-                  Community Center
-                </p>
-                <p class="event-description">
-                  Launch of our 2025 mentorship program with special guests.
-                </p>
-                <button class="register-btn">Register Now</button>
-              </div>
-            </div>
-            <div class="event-card">
-              <div class="event-image">
-                <img
-                  src="/src/assets/1131w-GD-NLpKhKmY.webp"
-                  alt="Mentorship Program"
-                />
-                <span class="event-timing">Mar 1 • 1:00 PM</span>
-              </div>
-              <div class="event-content">
-                <h3>Mentorship Program Launch</h3>
-                <p class="event-location">
-                  <i class="fa-solid fa-location-dot"></i>
-                  Community Center
-                </p>
-                <p class="event-description">
-                  Launch of our 2025 mentorship program with special guests.
-                </p>
-                <button class="register-btn">Register Now</button>
-              </div>
-            </div>
-          </div>
+          <div class="events-grid" id="upcoming-events-grid"></div>
         </section>
       </div>
     </main>

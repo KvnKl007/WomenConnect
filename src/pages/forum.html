@@ -9,6 +9,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   </head>
   <body>
     <header class="header">
@@ -21,16 +22,15 @@
             />
           </div>
           <div class="nav-links">
-            <a href="/src/pages/home.html" class="active">Home</a>
+            <a href="/src/pages/home.html">Home</a>
             <a href="/src/pages/story.html">Story Sharing</a>
-            <a href="/src/pages/forum.html">Community Forum</a>
+            <a href="/src/pages/forum.html" class="active">Community Forum</a>
             <a href="/src/pages/eventCalendar.html">EventsCalendar</a>
           </div>
           <div class="nav-icons">
             <a href="/src/pages/profile.html" class="icon-link"
               ><i class="fa-regular fa-user"></i
             ></a>
-            <a href="#" class="icon-link"><i class="fa-solid fa-search"></i></a>
             <button class="mobile-menu-btn">
               <i class="fa-solid fa-bars"></i>
             </button>
@@ -62,60 +62,11 @@
           <h1>Community Forum</h1>
         </div>
 
-        <div class="forum-categories">
-          <div class="category-card">
-            <i class="fa-solid fa-users"></i>
-            <h3>General Discussion</h3>
-            <p>15 topics · 234 posts</p>
-          </div>
-          <div class="category-card">
-            <i class="fa-solid fa-briefcase"></i>
-            <h3>Career Support</h3>
-            <p>28 topics · 456 posts</p>
-          </div>
-          <div class="category-card">
-            <i class="fa-solid fa-heart"></i>
-            <h3>Wellness & Health</h3>
-            <p>20 topics · 312 posts</p>
-          </div>
-          <div class="category-card">
-            <i class="fa-solid fa-graduation-cap"></i>
-            <h3>Education</h3>
-            <p>12 topics · 189 posts</p>
-          </div>
-        </div>
+        <div class="forum-categories" id="forum-categories"></div>
 
         <div class="recent-discussions">
           <h2>Recent Discussions</h2>
-          <div class="discussion-list">
-            <div class="discussion-card">
-              <div class="discussion-avatar">
-                <i class="fa-solid fa-user"></i>
-              </div>
-              <div class="discussion-content">
-                <h3>Tips for Work-Life Balance</h3>
-                <p>Started by Sarah J. · 2 hours ago · 12 replies</p>
-              </div>
-              <div class="discussion-stats">
-                <span><i class="fa-solid fa-comment"></i> 12</span>
-                <span><i class="fa-solid fa-eye"></i> 45</span>
-              </div>
-            </div>
-
-            <div class="discussion-card">
-              <div class="discussion-avatar">
-                <i class="fa-solid fa-user"></i>
-              </div>
-              <div class="discussion-content">
-                <h3>Career Transition Success Stories</h3>
-                <p>Started by Emma L. · 5 hours ago · 8 replies</p>
-              </div>
-              <div class="discussion-stats">
-                <span><i class="fa-solid fa-comment"></i> 8</span>
-                <span><i class="fa-solid fa-eye"></i> 32</span>
-              </div>
-            </div>
-          </div>
+          <div class="discussion-list" id="discussion-list"></div>
         </div>
       </div>
     </main>

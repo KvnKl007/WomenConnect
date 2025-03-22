@@ -9,12 +9,13 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
     <link rel="stylesheet" href="/src/style.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   </head>
   <body>
     <div class="register-contianer">
       <img src="/src/assets/icon.png" alt="logo" />
       <div class="form-container">
-        <form class="signup-form">
+        <form class="signup-form" id="login-form">
           <div class="form-group">
             <label for="email">Enter your email</label>
             <div class="input-wrapper">
@@ -32,9 +33,7 @@
             <a href="#" class="forgot-password">Forgot password?</a>
           </div>
 
-          <button type="submit" class="signup-button">
-            <a href="/src/pages/home.html">Login</a>
-          </button>
+          <button type="submit" class="signup-button">Login</button>
           <p class="account">
             Don't have an account?
             <span><a href="/src/index.html">Sign Up</a></span>
@@ -42,6 +41,6 @@
         </form>
       </div>
     </div>
-    <script src="script.js"></script>
+    <script src="../script.js"></script>
   </body>
 </html>

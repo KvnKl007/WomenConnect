@@ -9,6 +9,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   </head>
   <body>
     <header class="header">
@@ -21,7 +22,7 @@
             />
           </div>
           <div class="nav-links">
-            <a href="/src/pages/home.html" class="active">Home</a>
+            <a href="/src/pages/home.html">Home</a>
             <a href="/src/pages/story.html">Story Sharing</a>
             <a href="/src/pages/forum.html">Community Forum</a>
             <a href="/src/pages/eventCalendar.html">EventsCalendar</a>
@@ -30,7 +31,6 @@
             <a href="/src/pages/profile.html" class="icon-link"
               ><i class="fa-regular fa-user"></i
             ></a>
-            <a href="#" class="icon-link"><i class="fa-solid fa-search"></i></a>
             <button class="mobile-menu-btn">
               <i class="fa-solid fa-bars"></i>
             </button>
@@ -60,55 +60,12 @@
       <div class="container">
         <div class="profile-header">
           <div class="profile-cover"></div>
-          <div class="profile-info container">
-            <div class="profile-avatar">
-              <img src="/src/assets/image 7.png" alt="Profile Picture" />
-              <button class="edit-avatar">
-                <i class="fa-solid fa-pen"></i>
-              </button>
-            </div>
-            <div class="profile-details">
-              <h1>Sarah Johnson</h1>
-            </div>
-          </div>
+          <div class="profile-info container" id="profile-info"></div>
         </div>
       </div>
-      <div class="profile-card container">
-        <div class="profile-form">
-          <div class="form-group">
-            <label>Username</label>
-            <div class="input-wrapper">
-              <input type="text" value="Sarah Johnson" readonly />
-              <i class="fa-regular fa-user icon"></i>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label>Email</label>
-            <div class="input-wrapper">
-              <input type="email" value="sarah.j@email.com" readonly />
-              <i class="fa-regular fa-envelope icon"></i>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label>Password</label>
-            <div class="input-wrapper">
-              <input type="password" value="********" readonly />
-              <i class="fa-regular fa-eye icon"></i>
-            </div>
-          </div>
-
-          <a href="/src/pages/login.html"
-            ><button class="logout-button">
-              <i class="fa-solid fa-right-from-bracket"></i>
-              Logout
-            </button></a
-          >
-        </div>
-      </div>
+      <div class="profile-card container" id="profile-card"></div>
     </main>
 
-    <script src="/src/script.js"></script>
+    <script src="../script.js"></script>
   </body>
 </html>
