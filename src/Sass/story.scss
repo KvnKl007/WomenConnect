@@ -313,9 +313,9 @@ main {
         display: flex;
         align-items: center;
         gap: 5px;
-        i {
-          color: #E1447C;
-        }
+      }
+      .like i.liked {
+        color: #E1447C; 
       }
       .share {
         display: flex;

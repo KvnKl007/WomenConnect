@@ -69,7 +69,9 @@ $(document).ready(function() {
                 ${event.location}
               </p>
               <p class="event-description">${event.description}</p>
-              <button class="register-btn">Register Now</button>
+               <a href="https://forms.gle/AecfNT3xM8WkT83V8" target="_blank"
+            ><button class="register-btn">Register Now</button></a
+          >
             </div>
           </div>
         `;
@@ -101,52 +103,114 @@ $(document).ready(function() {
 
 // Stories
 $(document).ready(function() {
-    $.ajax({
-      url: 'http://localhost:3000/stories',
-      method: 'GET',
-      success: function(data) {
-        const storyContainer = $('#story-container');
-        data.forEach(story => {
-          const storyCard = `
-            <div class="story-card">
-              <div class="top-cont">
-                <h3>${story.title}</h3>
-                <p>${story.content}</p>
+  // Fetch stories from the server
+  $.ajax({
+    url: 'http://localhost:3000/stories',
+    method: 'GET',
+    success: function(data) {
+      const storyContainer = $('#story-container');
+      data.forEach(story => {
+        // Check if the user has liked this story
+        const userLikes = JSON.parse(localStorage.getItem('userLikes')) || {};
+        const isLiked = userLikes[story.id] || false;
+
+        const storyCard = `
+          <div class="story-card" data-id="${story.id}">
+            <div class="top-cont">
+              <h3>${story.title}</h3>
+              <p>${story.content}</p>
+            </div>
+            <div class="image">
+              <img src="${story.image}" alt="${story.title}" />
+            </div>
+            <div class="bottom-cont">
+              <div class="flex">
+                <b>${story.postedTime}</b>
+                <p>By ${story.author} | ${story.readTime}</p>
               </div>
-              <div class="image">
-                <img src="${story.image}" alt="${story.title}" />
-              </div>
-              <div class="bottom-cont">
-                <div class="flex">
-                  <b>${story.postedTime}</b>
-                  <p>By ${story.author} | ${story.readTime}</p>
+              <div class="divider"></div>
+              <div class="icons">
+                <div class="like">
+                  <i class="fa-solid fa-heart ${isLiked ? 'liked' : ''}"></i>
+                  <p>${story.likes}</p>
                 </div>
-                <div class="divider"></div>
-                <div class="icons">
-                  <div class="like">
-                    <i class="fa-solid fa-heart"></i>
-                    <p>${story.likes}</p>
-                  </div>
-                  <div class="share">
-                    <i class="fa-solid fa-arrow-up-from-bracket"></i>
-                    <p>${story.shares}</p>
-                  </div>
-                  <div class="save">
-                    <i class="fa-regular fa-bookmark"></i>
-                    <p>${story.saves}</p>
-                  </div>
+                <div class="share">
+                  <i class="fa-solid fa-arrow-up-from-bracket"></i>
+                  <p>${story.shares}</p>
+                </div>
+                <div class="save">
+                  <i class="fa-regular fa-bookmark"></i>
+                  <p>${story.saves}</p>
                 </div>
               </div>
             </div>
-          `;
-          storyContainer.append(storyCard);
-        });
+          </div>
+        `;
+        storyContainer.append(storyCard);
+      });
+
+      // Add click event to like icons
+      $('.like i').click(function(event) {
+        event.preventDefault();
+
+        const likeIcon = $(this);
+        const likesCount = likeIcon.next('p');
+        const storyCard = likeIcon.closest('.story-card');
+        const storyId = storyCard.data('id');
+
+        // Get the current like count
+        let currentLikes = parseInt(likesCount.text());
+
+        // Check if the user has already liked this story
+        const userLikes = JSON.parse(localStorage.getItem('userLikes')) || {};
+        const isLiked = userLikes[storyId] || false;
+
+        if (isLiked) {
+          // Unlike the story
+          likeIcon.removeClass('liked');
+          currentLikes -= 1;
+          userLikes[storyId] = false;
+        } else {
+          // Like the story
+          likeIcon.addClass('liked');
+          currentLikes += 1; 
+          userLikes[storyId] = true;
+        }
+
+        // Update the like count in the UI
+        likesCount.text(currentLikes);
+
+        // Save the updated like state in localStorage
+        localStorage.setItem('userLikes', JSON.stringify(userLikes));
+
+        // Send AJAX request to update like count on the server
+        updateLikeCount(storyId, currentLikes);
+      });
+    },
+    error: function(error) {
+      console.error('Error fetching stories:', error);
+    }
+  });
+
+  // Function to update like count on the server
+  function updateLikeCount(storyId, newLikeCount) {
+    $.ajax({
+      url: `http://localhost:3000/stories/${storyId}`,
+      method: 'PATCH',
+      contentType: 'application/json',
+      data: JSON.stringify({
+        likes: newLikeCount
+      }),
+      success: function(data) {
+        console.log('Like count updated:', data);
       },
       error: function(error) {
-        console.error('Error fetching stories:', error);
+        console.error('Error updating like count:', error);
       }
     });
-  });
+  }
+});
+
 
 // Forum
 $(document).ready(function() {
