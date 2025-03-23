@@ -245,17 +245,13 @@ $(document).ready(function() {
           password: password
         };
 
-        console.log('User object:', user); // Debug user object
-
         // Save user to JSON Server
-        console.log('Making AJAX request to register user...'); // Debug before AJAX request
         $.ajax({
           url: 'http://localhost:3000/users',
           method: 'POST',
-          contentType: 'application/json', // Set the Content-Type header
-          data: JSON.stringify(user), // Convert the user object to JSON
+          contentType: 'application/json', 
+          data: JSON.stringify(user),
           success: function(data) {
-            console.log('Registration successful:', data); // Debug success response
 
             // Store user session in localStorage
             localStorage.setItem('userSession', JSON.stringify({
@@ -268,17 +264,14 @@ $(document).ready(function() {
             updateProfileSection(data);
 
             // Redirect to home page (if needed)
-            console.log('Redirecting to home page...'); // Debug redirection
             window.location.href = '/src/pages/home.html';
           },
           error: function(error) {
-            console.error('Error registering user:', error); // Debug error response
             alert('Registration failed. Please try again.');
           }
         });
       },
       error: function(error) {
-        console.error('Error fetching users:', error); // Debug error response
         alert('Error fetching users. Please try again.');
       }
     });
@@ -304,8 +297,6 @@ $(document).ready(function() {
         const user = users.find(u => u.email === email && u.password === password);
 
         if (user) {
-          console.log('Login successful:', user); // Debug success response
-
           // Store user session in localStorage
           localStorage.setItem('userSession', JSON.stringify({
             id: user.id,
@@ -316,15 +307,13 @@ $(document).ready(function() {
           // Update profile section dynamically
           updateProfileSection(user);
 
-          // Redirect to home page (if needed)
-          console.log('Redirecting to home page...'); // Debug redirection
+          // Redirect to home page
           window.location.href = '/src/pages/home.html';
         } else {
           alert('Invalid email or password.');
         }
       },
       error: function(error) {
-        console.error('Error fetching users:', error); // Debug error response
         alert('Error fetching users. Please try again.');
       }
     });
